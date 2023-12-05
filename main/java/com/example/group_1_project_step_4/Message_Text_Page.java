@@ -25,4 +25,25 @@ public class Message_Text_Page extends AppCompatActivity {
         }
 
     }
+
+    public void account (View view){
+        Intent intent = new Intent(this, Account_Page.class);
+        startActivity(intent);
+    }
+    public void home (View view){
+        Intent intent = new Intent(this, Main_Page.class);
+        startActivity(intent);
+    }
+    public void search_ride (View view){
+        Intent intent = new Intent(this, Request_Page.class);
+        startActivity(intent);
+    }
+    public void payment (View view){
+        Intent intent = new Intent(this, Account_Payment_Info_Page.class);
+        startActivity(intent);
+    }
+    public void message (View view){
+        Intent intent = new Intent(this, Message_Page.class);
+        startActivity(intent);
+    }
 }
