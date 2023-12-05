@@ -119,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Current Location"
         android:inputType="text"
@@ -131,7 +131,6 @@
         android:id="@+id/destination_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:ems="10"
         android:hint="Destination"
         android:inputType="text"
@@ -140,34 +139,43 @@
         app:layout_constraintTop_toBottomOf="@+id/current_location_text" />
 
     <EditText
-        android:id="@+id/date_time_text"
+        android:id="@+id/date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:ems="10"
-        android:hint="YYYY-MM-DD HH-MM"
+        android:hint="YYYY-MM-DD"
         android:inputType="text"
-        android:onClick="date_time"
+        android:onClick="setDate"
         app:layout_constraintStart_toStartOf="@+id/destination_text"
         app:layout_constraintTop_toBottomOf="@+id/destination_text" />
+
+    <EditText
+        android:id="@+id/time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="HH-MM"
+        android:inputType="text"
+        android:onClick="setTime"
+        app:layout_constraintStart_toStartOf="@+id/destination_text"
+        app:layout_constraintTop_toBottomOf="@+id/date_text" />
 
     <TextView
         android:id="@+id/num_passenger_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="38dp"
         android:text="0"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/minus_passenger_button"
-        app:layout_constraintTop_toBottomOf="@+id/date_time_text" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <Button
         android:id="@+id/add_passenger_button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
         android:onClick="add_passenger_button"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
@@ -176,15 +184,15 @@
         android:text="+"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/num_passenger_text"
-        app:layout_constraintTop_toBottomOf="@+id/date_time_text" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <Button
         android:id="@+id/minus_passenger_button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="240dp"
-        android:layout_marginTop="11dp"
         android:onClick="minus_passenger_button"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
@@ -193,18 +201,19 @@
         android:text="-"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <RadioGroup
         android:id="@+id/gender_pref_radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="24dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/minus_passenger_button">
+        app:layout_constraintTop_toTopOf="@+id/textView4">
 
         <RadioButton
             android:id="@+id/male_pref"
@@ -230,10 +239,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_pref_radio">
+        app:layout_constraintTop_toTopOf="@+id/textView6">
 
         <RadioButton
             android:id="@+id/smoking_pref"
@@ -254,10 +263,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smoking_preference_radio">
+        app:layout_constraintTop_toTopOf="@+id/textView5">
 
         <RadioButton
             android:id="@+id/sedan_pref"
@@ -294,12 +303,13 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:scaleX="5"
         android:scaleY=".2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_time_text"
+        app:layout_constraintTop_toBottomOf="@+id/time_text"
         app:srcCompat="@drawable/header" />
 
     <ImageView
@@ -355,70 +365,112 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="From"
+        android:text="From:"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/current_location_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offerRequest" />
+        app:layout_constraintTop_toTopOf="@+id/current_location_text" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dist."
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/current_location_text"
+        app:layout_constraintStart_toEndOf="@+id/current_location_text"
+        app:layout_constraintTop_toTopOf="@+id/current_location_text"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="28dp"
+        android:layout_height="22dp"
+        android:text="km"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dist" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Depart at"
+        android:text="Depart on:"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_text"
         app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/destination_text" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Depart at:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/time_text"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/date_text" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="To"
+        android:text="To:"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/destination_text"
         app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/current_location_text" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:text="Number of Passengers"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/date_time_text" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="12dp"
         android:text="Gender Preference"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="12dp"
         android:text="Car Type"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="12dp"
         android:text="Smoking Preference"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/dist"
+        android:layout_width="63dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/destination_text"
+        app:layout_constraintStart_toEndOf="@+id/destination_text"
+        app:layout_constraintTop_toBottomOf="@+id/current_location_text" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

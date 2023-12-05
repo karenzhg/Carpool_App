@@ -13,7 +13,7 @@ public class Message_Page extends AppCompatActivity {
     }
 
     public void message1(View view) {
-        Intent intent = new Intent(this, Complete_Ride_Page.class);
+        Intent intent = new Intent(this, Message_Text_Page.class);
         startActivity(intent);
     }
     public void account (View view){

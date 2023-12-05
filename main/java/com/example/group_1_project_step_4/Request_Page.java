@@ -1,19 +1,27 @@
 package com.example.group_1_project_step_4;
 
+import static android.app.ProgressDialog.show;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class Request_Page extends AppCompatActivity {
-    private EditText current_location, destination, date_time;
-    private String from, to, departAt;
+    private EditText current_location, destination, date, time, dist;
+    private String from, to, departOn, departAt, distance;
     private TextView num_passenger;
     private int numPassenger;
     private RadioGroup gender_pref, smoking_pref, car_pref;
@@ -34,7 +42,9 @@ public class Request_Page extends AppCompatActivity {
 
         current_location = findViewById(R.id.current_location_text);
         destination = findViewById(R.id.destination_text);
-        date_time = findViewById(R.id.date_time_text);
+        date = findViewById(R.id.date_text);
+        time = findViewById(R.id.time_text);
+        dist = findViewById(R.id.dist);
         num_passenger = findViewById(R.id.num_passenger_text);
         gender_pref = findViewById(R.id.gender_pref_radio);
         smoking_pref = findViewById(R.id.smoking_preference_radio);
@@ -49,14 +59,43 @@ public class Request_Page extends AppCompatActivity {
         num_pass++;
         num_passenger.setText(String.valueOf(num_pass));
     }
-    public boolean checkLocation (String location) {
-        if (location.isEmpty())
-            return false;
-        else
-            return true;
+    public void setDate(View view) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        date.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                    }
+                }, mYear, mMonth, mDay);
+
+        datePickerDialog.show();
     }
-    public boolean checkDateTime (String datetime) {
-        if (datetime.isEmpty())
+
+    public void setTime(View view) {
+        // Get Current Time
+        final Calendar c = Calendar.getInstance();
+        int mHour = c.get(Calendar.HOUR_OF_DAY);
+        int mMinute = c.get(Calendar.MINUTE);
+
+        // Launch Time Picker Dialog
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        time.setText(hourOfDay + ":" + minute);
+                    }
+                }, mHour, mMinute, false);
+        timePickerDialog.show();
+    }
+
+    public boolean checkEmpty (String str) {
+        if (str.isEmpty())
             return false;
         else {
 
@@ -84,7 +123,9 @@ public class Request_Page extends AppCompatActivity {
     public void submit (View view){
         from = current_location.getText().toString();
         to = destination.getText().toString();
-        departAt = date_time.getText().toString();
+        departOn = date.getText().toString();
+        departAt = time.getText().toString();
+        distance = dist.getText().toString();
         numPassenger = Integer.parseInt(num_passenger.getText().toString());
 
         int selectedId = gender_pref.getCheckedRadioButtonId();
@@ -112,17 +153,25 @@ public class Request_Page extends AppCompatActivity {
         }
 
         int error = 0;
-        if (!checkLocation(from)) {
+        if (!checkEmpty(from)) {
             error = 0;
             toastMessage("Please enter your current location");
             error++;
-        } else if (!checkLocation(to)) {
+        } else if (!checkEmpty(to)) {
             error = 0;
             toastMessage("Please enter your destination");
             error++;
-        } else if (!checkDateTime(departAt)) {
+        } else if (!checkEmpty(distance)) {
             error = 0;
-            toastMessage("Please enter a depart date and time");
+            toastMessage("Please enter a distance of your travel");
+            error++;
+        } else if (!checkEmpty(departOn)) {
+            error = 0;
+            toastMessage("Please enter a depart date");
+            error++;
+        } else if (!checkEmpty(departAt)) {
+            error = 0;
+            toastMessage("Please enter a depart time");
             error++;
         } else if (numPassenger <= 0) {
             toastMessage("Please select a number of passengers");
@@ -152,6 +201,7 @@ public class Request_Page extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("from", from);
             bundle.putString("to", to);
+            bundle.putString("departOn", departOn);
             bundle.putString("departAt", departAt);
             bundle.putInt("numPassenger", numPassenger);
             bundle.putString("gender", gender);
