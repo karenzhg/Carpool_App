@@ -4,38 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main_Page">
-
-    <Button
-        android:id="@+id/search_button"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:onClick="search_ride"
-        android:text="Search Rides"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/offer_rides"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        android:onClick="offer_ride"
-        android:text="Offer Rides"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".Complete_Ride_Page">
 
     <Button
         android:id="@+id/home_button"
-        android:layout_width="95dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="7dp"
         android:layout_marginBottom="5dp"
         android:onClick="home"
         android:paddingLeft="0dp"
@@ -48,9 +23,9 @@
 
     <Button
         android:id="@+id/search_button"
-        android:layout_width="95dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="5dp"
         android:onClick="search_ride"
         android:paddingLeft="0dp"
@@ -63,9 +38,9 @@
 
     <Button
         android:id="@+id/payment_button"
-        android:layout_width="95dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="5dp"
         android:onClick="payment"
         android:paddingLeft="0dp"
@@ -78,9 +53,9 @@
 
     <Button
         android:id="@+id/message_button"
-        android:layout_width="95dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="7dp"
         android:layout_marginBottom="5dp"
         android:onClick="message"
         android:paddingLeft="0dp"
@@ -127,5 +102,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon" />
+
+    <ImageView
+        android:id="@+id/msgview"
+        android:layout_width="403dp"
+        android:layout_height="635dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/msg" />
+
+    <ImageView
+        android:id="@+id/textbox"
+        android:layout_width="390dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="53dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/textbox" />
+
+    <ImageView
+        android:id="@+id/send_icon"
+        android:layout_width="44dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textbox"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <ImageView
+        android:id="@+id/plus_button"
+        android:layout_width="37dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/plus" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

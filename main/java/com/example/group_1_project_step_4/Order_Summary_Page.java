@@ -32,11 +32,11 @@ public class Order_Summary_Page extends AppCompatActivity {
         double tax = subtot * 0.12;
         double tot = subtot + tax;
 
-        basic_fee.setText(String.valueOf(basic));
-        distance.setText(String.valueOf(dist));
-        subtotal.setText(String.valueOf(subtot));
-        gst_pst.setText(String.valueOf(tax));
-        total.setText(String.valueOf(tot));
+        basic_fee.setText(String.format("$ %.2f",basic));
+        distance.setText(String.format("%.2f km", dist));
+        subtotal.setText(String.format("$ %.2f", subtot));
+        gst_pst.setText(String.format("$ %.2f", tax));
+        total.setText(String.format("$ %.2f", tot));
     }
     public void change_payment (View view) {
         Intent intent = new Intent(this, Account_Payment_Info_Page.class);
@@ -55,7 +55,7 @@ public class Order_Summary_Page extends AppCompatActivity {
         startActivity(intent);
     }
     public void search_ride (View view){
-        Intent intent = new Intent(this, Ride_Request_Page.class);
+        Intent intent = new Intent(this, Request_Page.class);
         startActivity(intent);
     }
     public void payment (View view){

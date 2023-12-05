@@ -39,7 +39,7 @@ public class Account_Page extends AppCompatActivity {
         startActivity(intent);
     }
     public void search_ride (View view){
-        Intent intent = new Intent(this, Ride_Request_Page.class);
+        Intent intent = new Intent(this, Request_Page.class);
         startActivity(intent);
     }
     public void payment (View view){

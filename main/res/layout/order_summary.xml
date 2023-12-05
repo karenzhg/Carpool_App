@@ -22,7 +22,7 @@
         android:id="@+id/home_button"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="home"
         android:paddingLeft="0dp"
@@ -37,7 +37,7 @@
         android:id="@+id/search_button"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="search_ride"
         android:paddingLeft="0dp"
@@ -52,7 +52,7 @@
         android:id="@+id/payment_button"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="payment"
         android:paddingLeft="0dp"
@@ -67,7 +67,7 @@
         android:id="@+id/message_button"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="message"
         android:paddingLeft="0dp"
@@ -119,7 +119,7 @@
         android:id="@+id/basic_fee_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="240dp"
         android:layout_marginTop="32dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,47 +129,42 @@
         android:id="@+id/distance_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/basic_fee_text"
         app:layout_constraintTop_toBottomOf="@+id/basic_fee_text" />
 
     <TextView
         android:id="@+id/subtotal_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/distance_text"
         app:layout_constraintTop_toBottomOf="@+id/distance_text" />
 
     <TextView
         android:id="@+id/gst_pst_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/subtotal_text"
         app:layout_constraintTop_toBottomOf="@+id/subtotal_text" />
 
     <TextView
         android:id="@+id/total_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gst_pst_text"
         app:layout_constraintTop_toBottomOf="@+id/gst_pst_text" />
 
     <Button
         android:id="@+id/change_payment_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
         android:onClick="change_payment"
         android:paddingLeft="10dp"
@@ -178,7 +173,7 @@
         android:paddingBottom="0dp"
         android:text="Payment Method"
         app:cornerRadius="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
@@ -207,11 +202,10 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:text="Distance"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
@@ -220,7 +214,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="16dp"
-        android:text="(CAD $0.36 / km)"
+        android:text="(CAD $0.36/ km)"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -229,33 +223,30 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:text="Subtotal"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:text="GST + PST"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="50dp"
         android:text="Total"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageView
