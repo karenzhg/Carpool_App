@@ -6,14 +6,25 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testingfirebase.R;
+
 public class Message_Page extends AppCompatActivity {
+    int requestNum = 0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        // 1 creates a ride request and 2 creates a offer request
+        requestNum = bundle.getInt("request");
     }
 
     public void message1(View view) {
         Intent intent = new Intent(this, Message_Text_Page.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("request", requestNum);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
     public void account (View view){
