@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testingfirebase.R;
+
 public class Ride_Offer_Menu_Page extends AppCompatActivity {
 
     private TextView username, pick_up, drop_off, departure_time, num_passenger, gender_pref, car_pref, smoking_pref;
@@ -44,6 +46,9 @@ public class Ride_Offer_Menu_Page extends AppCompatActivity {
     }
     public void accept (View view){
         Intent intent = new Intent(this, Message_Page.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("request", 2);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
     public void deny (View view){
