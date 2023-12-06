@@ -135,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="message1"
-                android:text="User"
+                android:text="User 1"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -144,7 +144,7 @@
                 android:id="@+id/message_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 2"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -153,7 +153,7 @@
                 android:id="@+id/message_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 3"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -162,7 +162,7 @@
                 android:id="@+id/message_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 4"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -171,7 +171,7 @@
                 android:id="@+id/message_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 5"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -180,7 +180,7 @@
                 android:id="@+id/message_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 6"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -189,7 +189,7 @@
                 android:id="@+id/message_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 7"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -198,7 +198,7 @@
                 android:id="@+id/message_8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 8"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -207,7 +207,7 @@
                 android:id="@+id/message_9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 9"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -217,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbarSize="20dp"
-                android:text="User"
+                android:text="User 10"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />
@@ -226,7 +226,7 @@
                 android:id="@+id/message_11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="User 11"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 app:cornerRadius="0dp" />

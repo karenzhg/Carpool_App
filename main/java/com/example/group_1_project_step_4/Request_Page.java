@@ -33,7 +33,7 @@ public class Request_Page extends AppCompatActivity {
     private int numPassenger;
     private RadioGroup gender_pref, smoking_pref, car_pref;
     private RadioButton gender_prf, smoking_prf, car_prf;
-    String gender, smoke, car;
+    private String gender, smoke, car;
     private int num_pass = 0;
     private int requestNum;
 
@@ -232,15 +232,8 @@ public class Request_Page extends AppCompatActivity {
             else
                 status = "offer";
 
-            LocalDateTime currentDateTime = LocalDateTime.now();
-
-            // Format the date and time using a specific pattern (optional)
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String currDateTime = currentDateTime.format(formatter);
-
             // Write on database
-            DatabaseReference request = root.child(currDateTime.toString());
-            request.child("username").setValue(username);
+            DatabaseReference request = root.child(username);
             request.child("status").setValue(status);
             request.child("from").setValue(from);
             request.child("to").setValue(to);

@@ -3,11 +3,13 @@ package com.example.group_1_project_step_4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Message_Page extends AppCompatActivity {
     private int requestNum;
+    private String username;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
@@ -19,6 +21,13 @@ public class Message_Page extends AppCompatActivity {
         requestNum = bundle.getInt("request");
     }
 
+    public void toastMessage(String message) {
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(this /* MyActivity */, text, duration);
+        toast.show();
+    }
     public void message1(View view) {
         Intent intent = new Intent(this, Message_Text_Page.class);
         Bundle bundle = new Bundle();

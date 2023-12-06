@@ -9,6 +9,7 @@ import android.view.View;
 public class Message_Text_Page extends AppCompatActivity {
 
     private int requestNum=0;
+    private String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

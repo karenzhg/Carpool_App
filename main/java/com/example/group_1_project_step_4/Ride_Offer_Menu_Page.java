@@ -64,7 +64,8 @@ public class Ride_Offer_Menu_Page extends AppCompatActivity {
                 DataSnapshot receivedValue = task.getResult();
                 for(DataSnapshot node: receivedValue.getChildren())
                 {
-                    userName.add(node.child("username").getValue().toString());
+                    userName.add(node.getKey());
+//                    userName.add(node.child("username").getValue().toString());
                     status.add(node.child("status").getValue().toString());
                     currLocation.add(node.child("from").getValue().toString());
                     destination.add(node.child("to").getValue().toString());

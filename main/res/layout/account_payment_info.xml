@@ -138,6 +138,16 @@
         app:layout_constraintTop_toBottomOf="@+id/user_name_text" />
 
     <EditText
+        android:id="@+id/card_billing_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Billing Address"
+        android:inputType="textPostalAddress"
+        app:layout_constraintStart_toStartOf="@+id/card_expiry_text"
+        app:layout_constraintTop_toBottomOf="@+id/card_expiry_text" />
+
+    <EditText
         android:id="@+id/email_address_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -182,23 +192,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_number_text" />
 
-    <EditText
-        android:id="@+id/card_billing_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:ems="10"
-        android:hint="Billing Address"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_expiry_text" />
-
     <CheckBox
         android:id="@+id/billing_same"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="-10dp"
         android:text="Same as account address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_billing_text" />
