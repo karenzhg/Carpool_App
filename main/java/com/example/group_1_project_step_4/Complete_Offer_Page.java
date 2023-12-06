@@ -22,10 +22,7 @@ public class Complete_Offer_Page extends AppCompatActivity {
 
         code = findViewById(R.id.code);
     }
-    public void submit (View view) {
 
-        finish();
-    }
     public void account (View view){
         Intent intent = new Intent(this, Account_Page.class);
         startActivity(intent);

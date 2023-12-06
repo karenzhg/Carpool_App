@@ -18,6 +18,9 @@ public class Order_Summary_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_summary);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String distnc = bundle.getString("distance");
         basic_fee = findViewById(R.id.basic_fee_text);
         distance = findViewById(R.id.distance_text);
         subtotal = findViewById(R.id.subtotal_text);
@@ -27,7 +30,7 @@ public class Order_Summary_Page extends AppCompatActivity {
         String distance_db = "20";
 
         double basic = 10;
-        double dist = Double.parseDouble(distance_db);
+        double dist = Double.parseDouble(distnc);
         double subtot = dist * 0.36;
         double tax = subtot * 0.12;
         double tot = subtot + tax;

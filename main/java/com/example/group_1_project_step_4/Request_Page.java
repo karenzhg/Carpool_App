@@ -27,8 +27,8 @@ import java.util.Calendar;
 
 public class Request_Page extends AppCompatActivity {
     private DatabaseReference root; // Global variable for database reference
-    private EditText current_location, destination, date, time, dist;
-    private String from, to, departOn, departAt, distance;
+    private EditText user_name, current_location, destination, date, time, dist;
+    private String username, from, to, departOn, departAt, distance;
     private TextView num_passenger;
     private int numPassenger;
     private RadioGroup gender_pref, smoking_pref, car_pref;
@@ -50,6 +50,7 @@ public class Request_Page extends AppCompatActivity {
         // Get an instance of database
         root = FirebaseDatabase.getInstance().getReference();
 
+        user_name = findViewById(R.id.usrnam);
         current_location = findViewById(R.id.current_location_text);
         destination = findViewById(R.id.destination_text);
         date = findViewById(R.id.date_text);
@@ -131,6 +132,7 @@ public class Request_Page extends AppCompatActivity {
         toast.show();
     }
     public void submit (View view){
+        username = user_name.getText().toString();
         from = current_location.getText().toString();
         to = destination.getText().toString();
         departOn = date.getText().toString();
@@ -163,7 +165,11 @@ public class Request_Page extends AppCompatActivity {
         }
 
         int error = 0;
-        if (!checkEmpty(from)) {
+        if (!checkEmpty(username)) {
+            error = 0;
+            toastMessage("Please enter your username");
+            error++;
+        } else if (!checkEmpty(from)) {
             error = 0;
             toastMessage("Please enter your current location");
             error++;
@@ -209,8 +215,10 @@ public class Request_Page extends AppCompatActivity {
             }
 
             Bundle bundle = new Bundle();
+            bundle.putString("username", username);
             bundle.putString("from", from);
             bundle.putString("to", to);
+            bundle.putString("distance", distance);
             bundle.putString("departOn", departOn);
             bundle.putString("departAt", departAt);
             bundle.putInt("numPassenger", numPassenger);
@@ -232,6 +240,7 @@ public class Request_Page extends AppCompatActivity {
 
             // Write on database
             DatabaseReference request = root.child(currDateTime.toString());
+            request.child("username").setValue(username);
             request.child("status").setValue(status);
             request.child("from").setValue(from);
             request.child("to").setValue(to);

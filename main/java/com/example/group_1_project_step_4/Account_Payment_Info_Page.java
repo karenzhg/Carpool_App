@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +16,7 @@ import java.util.regex.Pattern;
 
 public class Account_Payment_Info_Page extends AppCompatActivity {
     private Spinner spinner;
-    private TextView first_name, last_name, addr, email_address, phone_number, card_number, card_exp, bill_address;
+    private TextView username, addr, email_address, phone_number, card_number, card_exp, bill_address;
     private String firstName, lastName, address, emailAddress, phoneNumber, cardNumber, cardExpiry, billAddress;
     private CheckBox same, terms_cond;
     private boolean sameBill, termsCond;
@@ -32,8 +31,7 @@ public class Account_Payment_Info_Page extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter1);
 
-        first_name = findViewById(R.id.first_name_text);
-        last_name = findViewById(R.id.last_name_text);
+        username = findViewById(R.id.user_name_text);
         addr = findViewById(R.id.address_text);
         email_address = findViewById(R.id.email_address_text);
         phone_number = findViewById(R.id.phone_number_text);
@@ -71,8 +69,7 @@ public class Account_Payment_Info_Page extends AppCompatActivity {
     }
 
     public void submit(View view) {
-        firstName = first_name.getText().toString();
-        lastName = last_name.getText().toString();
+        firstName = username.getText().toString();
         address = addr.getText().toString();
         emailAddress = email_address.getText().toString();
         phoneNumber = phone_number.getText().toString();

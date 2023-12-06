@@ -10,7 +10,7 @@
         android:id="@+id/home_button"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="home"
         android:paddingLeft="0dp"
@@ -25,7 +25,7 @@
         android:id="@+id/search_button"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="search_ride"
         android:paddingLeft="0dp"
@@ -40,7 +40,7 @@
         android:id="@+id/payment_button"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="payment"
         android:paddingLeft="0dp"
@@ -55,7 +55,7 @@
         android:id="@+id/message_button"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="5dp"
         android:onClick="message"
         android:paddingLeft="0dp"
@@ -118,14 +118,25 @@
         android:id="@+id/current_location_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Current Location"
         android:inputType="text"
         android:onClick="current_location"
+        app:layout_constraintStart_toStartOf="@+id/usrnam"
+        app:layout_constraintTop_toBottomOf="@+id/usrnam" />
+
+    <EditText
+        android:id="@+id/usrnam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:onClick="current_location"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offerRequest" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/destination_text"
@@ -154,10 +165,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="HH-MM"
+        android:hint="HH:MM"
         android:inputType="text"
         android:onClick="setTime"
-        app:layout_constraintStart_toStartOf="@+id/destination_text"
+        app:layout_constraintStart_toStartOf="@+id/date_text"
         app:layout_constraintTop_toBottomOf="@+id/date_text" />
 
     <TextView
@@ -291,7 +302,7 @@
         android:id="@+id/create_offerrequest_button"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="55dp"
         android:onClick="submit"
         android:text="Create a Request"
         android:textSize="20sp"
@@ -364,12 +375,22 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:text="From:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/current_location_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toTopOf="@+id/current_location_text" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Username:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/current_location_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/usrnam" />
 
     <TextView
         android:id="@+id/textView20"
