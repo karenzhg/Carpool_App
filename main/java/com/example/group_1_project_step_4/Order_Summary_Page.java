@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testingfirebase.R;
+
 public class Order_Summary_Page extends AppCompatActivity {
     private TextView basic_fee;
     private TextView distance;
@@ -44,6 +46,9 @@ public class Order_Summary_Page extends AppCompatActivity {
     }
     public void submit (View view){
         Intent intent = new Intent(this, Message_Page.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("request", 1);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
     public void account (View view){
