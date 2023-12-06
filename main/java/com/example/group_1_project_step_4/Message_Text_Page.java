@@ -8,19 +8,31 @@ import android.view.View;
 
 public class Message_Text_Page extends AppCompatActivity {
 
-    private int request = 1;
+    private int requestNum=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_text);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        // 1 = ride request, 2 = offer request
+        requestNum = bundle.getInt("request");
     }
     public void completeRide(View view) {
         Intent intent;
-        if (request == 1) {
-            intent = new Intent(this, Complete_Offer_Page.class);
+        Bundle bundle = new Bundle();
+        int random = (int) (Math.random() * (9999 - 1000 + 1)) + 1000;
+        if (requestNum == 1) {
+            intent = new Intent(this, Complete_Rider_Page.class);
+            bundle.putInt("random", random);
+            intent.putExtras(bundle);
             startActivity(intent);
         } else {
-            intent = new Intent(this, Complete_Rider_Page.class);
+            intent = new Intent(this, Complete_Offer_Page.class);
+            bundle.putInt("random", random);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
 

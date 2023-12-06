@@ -17,9 +17,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class Request_Page extends AppCompatActivity {
+    private DatabaseReference root; // Global variable for database reference
     private EditText current_location, destination, date, time, dist;
     private String from, to, departOn, departAt, distance;
     private TextView num_passenger;
@@ -39,6 +46,9 @@ public class Request_Page extends AppCompatActivity {
 
         // 1 creates a ride request and 2 creates a offer request
         requestNum = bundle.getInt("request");
+
+        // Get an instance of database
+        root = FirebaseDatabase.getInstance().getReference();
 
         current_location = findViewById(R.id.current_location_text);
         destination = findViewById(R.id.destination_text);
@@ -208,6 +218,30 @@ public class Request_Page extends AppCompatActivity {
             bundle.putString("smoking", smoke);
             bundle.putString("car", car);
 
+            String status = "";
+            if (requestNum == 1)
+                status = "rider";
+            else
+                status = "offer";
+
+            LocalDateTime currentDateTime = LocalDateTime.now();
+
+            // Format the date and time using a specific pattern (optional)
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String currDateTime = currentDateTime.format(formatter);
+
+            // Write on database
+            DatabaseReference request = root.child(currDateTime.toString());
+            request.child("status").setValue(status);
+            request.child("from").setValue(from);
+            request.child("to").setValue(to);
+            request.child("departOn").setValue(departOn);
+            request.child("departAt").setValue(departAt);
+            request.child("numPassenger").setValue(numPassenger);
+            request.child("gender").setValue(gender);
+            request.child("smoking").setValue(smoke);
+            request.child("car").setValue(car);
+
             intent.putExtras(bundle);
             startActivity(intent);
         }
@@ -231,6 +265,8 @@ public class Request_Page extends AppCompatActivity {
     }
     public void message (View view){
         Intent intent = new Intent(this, Message_Page.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("random", 0);
         startActivity(intent);
     }
 }

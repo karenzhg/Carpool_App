@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testingfirebase.R;
-
 public class Order_Summary_Page extends AppCompatActivity {
     private TextView basic_fee;
     private TextView distance;

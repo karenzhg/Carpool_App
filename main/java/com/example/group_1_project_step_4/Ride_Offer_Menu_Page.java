@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testingfirebase.R;
-
 public class Ride_Offer_Menu_Page extends AppCompatActivity {
 
     private TextView username, pick_up, drop_off, departure_time, num_passenger, gender_pref, car_pref, smoking_pref;

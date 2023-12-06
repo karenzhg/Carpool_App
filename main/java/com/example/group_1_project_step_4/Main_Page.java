@@ -43,6 +43,9 @@ public class Main_Page extends AppCompatActivity {
 
     public void message (View view){
         Intent intent = new Intent(this, Message_Page.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("request", 0);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
